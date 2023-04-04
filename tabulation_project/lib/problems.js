@@ -78,9 +78,9 @@ function minChange(coins, amount) {
     let dp = new Array(amount+1).fill(Infinity);
     dp[0] = 0;
 
-    for(let i=0;i<dp.length;i++){
-        for(let coin of coins){
-            if(i+coin<=amount) dp[i+coin] = Math.min(dp[i+coin],dp[i]+1);
+    for(let coin of coins){
+        for(let i=0;i+coin<=amount;i++){
+            dp[i+coin] = Math.min(dp[i+coin],dp[i]+1);
         }
     }
 
